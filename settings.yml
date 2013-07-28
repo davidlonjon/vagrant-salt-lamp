@@ -1,0 +1,27 @@
+web1:
+  hostname: 'web1.project.dev'
+  ip: '20.20.20.10'
+  box: 'precise64'
+  url: 'http://files.vagrantup.com/precise64.box'
+  forwards:
+    http:
+      from: 80
+      to: 8080
+    mysql:
+      from: 3306
+      to: 3306
+  share_folders:
+    www:
+      host_path: './shares/www'
+      guest_path: '/home/vagrant/www/project.dev'
+    logs:
+      host_path: './shares/www_logs'
+      guest_path: '/home/vagrant/www_logs'
+    db_dump:
+      host_path: './shares/db_dumps'
+      guest_path: '/home/vagrant/db_dumps/'
+  host_aliases: 'project.dev www.project.dev mysql.project.dev'
+  ram: 1024
+  timezone: 'Asia/Seoul'
+  provisioner: 'salt'
+  salt_verbose: true
