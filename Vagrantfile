@@ -99,35 +99,16 @@ Vagrant.configure("2") do |config|
       end
 
       if cfg[:provisioner] == 'salt'
-        # Use all the defaults:
         vm_config.vm.provision :salt do |salt|
 
-          # if cfg[:salt_pillars]
-          #   cfg[:salt_pillars].each do |key, value|
-          #     salt.pillar({
-          #       key => value
-          #     })
-          #     puts key, value
-          #   end
-          # end
-
-          # puts salt
+          # Locate the minion file
           salt.minion_config = "shares/srv/minion"
+
+          # Execute SaltStack  provisioning
           salt.run_highstate = true
 
           # Install the latest version of SaltStack
-          salt.install_type = "daily"
-
-          salt.pillar({
-            "hostnames" => {
-              "phpmyadmin" => "intranet.example.com"
-            }
-          })
-
-          # Export database credentials
-          salt.pillar({
-            "database" => 'test'
-          })
+          # salt.install_type = "daily"
           salt.verbose = (cfg[:salt_verbose] ? cfg[:salt_verbose] : false)
         end
       end

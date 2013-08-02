@@ -21,9 +21,6 @@ web1:
       host_path: './shares/db_dumps'
       guest_path: '/home/vagrant/db_dumps/'
   host_aliases: 'project.dev www.project.dev mysql.project.dev phpmyadmin.project.dev'
-  salt_pillars:
-    hostnames:
-      phpmyadmin: phpmyadmin1.project.dev
   ram: 1024
   timezone: 'Asia/Seoul'
   provisioner: 'salt'
