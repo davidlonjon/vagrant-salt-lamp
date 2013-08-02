@@ -7,6 +7,10 @@ include:
 phpmyadmin:
   pkg.installed:
     - name: phpmyadmin
+    - require:
+      - pkg: php5
+      - pkg: apache2
+
 
 phpmyadmin_apache:
   file.managed:
@@ -21,9 +25,8 @@ phpmyadmin_apache:
        server_admin: {{ "admin@server.dev" if pillar['phpmyadmin']['server_admin'] is not defined else pillar['phpmyadmin']['server_admin'] }}
        allow_from: {{ "127.0.0.1" if pillar['phpmyadmin']['allow_from'] is not defined else pillar['phpmyadmin']['allow_from'] }}
        logs_dir: {{ "/home/vagrant" if pillar['phpmyadmin']['logs_dir'] is not defined else pillar['phpmyadmin']['logs_dir'] }}
-  # host.present:
-    # - name: phpmyadmin
-    # - ip: 127.0.0.1
+    - require:
+      - pkg: phpmyadmin
 
 phpmyadmin_apache-enable:
   file.symlink:
@@ -38,3 +41,4 @@ extend:
       - running
       - watch:
         - file: /etc/apache2/sites-available/phpmyadmin
+        - pkg: phpmyadmin
