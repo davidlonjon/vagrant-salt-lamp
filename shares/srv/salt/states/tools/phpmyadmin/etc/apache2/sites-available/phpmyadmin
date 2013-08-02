@@ -1,0 +1,70 @@
+<VirtualHost *:80>
+
+    ServerAdmin {{ server_admin }}
+
+    DocumentRoot /usr/share/phpmyadmin
+    ServerName {{ server_name }}
+
+    RewriteEngine On
+        RewriteCond %{HTTP_HOST} !{{ server_name }}
+        RewriteRule (.*) [L]
+
+     <Directory /usr/share/phpmyadmin>
+
+        Options Indexes FollowSymLinks
+            AllowOverride None
+            deny from all
+            allow from localhost
+             #allow access via your IP
+            allow from {{ allow_from }}
+
+        <IfModule mod_php5.c>
+            AddType application/x-httpd-php .php
+
+            php_flag magic_quotes_gpc Off
+            php_flag track_vars On
+            php_flag register_globals Off
+            php_admin_flag allow_url_fopen Off
+            php_value include_path .
+            php_admin_value upload_tmp_dir /var/lib/phpmyadmin/tmp
+            php_admin_value open_basedir /usr/share/phpmyadmin/:/etc/phpmyadmin/:/var/lib/phpmyadmin/
+        </IfModule>
+
+    </Directory>
+
+    # Authorize for setup
+    <Directory /usr/share/phpmyadmin/setup>
+        <IfModule mod_authn_file.c>
+        AuthType Basic
+        AuthName "phpMyAdmin Setup"
+        AuthUserFile /etc/phpmyadmin/htpasswd.setup
+        </IfModule>
+        Require valid-user
+    </Directory>
+
+    # Disallow web access to directories that don't need it
+    <Directory /usr/share/phpmyadmin/libraries>
+        Order Deny,Allow
+        Deny from All
+    </Directory>
+    <Directory /usr/share/phpmyadmin/setup/lib>
+        Order Deny,Allow
+        Deny from All
+    </Directory>
+
+    #   SSL Engine Switch:
+        #   Enable/Disable SSL for this virtual host.
+       # SSLEngine on
+
+        #   A self-signed (snakeoil) certificate can be created by installing
+        #   the ssl-cert package. See
+        #   /usr/share/doc/apache2.2-common/README.Debian.gz for more info.
+        #   If both key and certificate are stored in the same file, only the
+        #   SSLCertificateFile directive is needed.
+       # SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
+       # SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+
+        ErrorLog {{ logs_dir }}/phpmyadmin-error.log
+        LogLevel warn
+        CustomLog {{ logs_dir }}/phpmyadmin-access.log combined
+</VirtualHost>

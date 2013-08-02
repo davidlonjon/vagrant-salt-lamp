@@ -1,0 +1,3 @@
+mytop:
+  pkg:
+    - installed
