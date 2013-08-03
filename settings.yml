@@ -10,6 +10,9 @@ web1:
     mysql:
       from: 3306
       to: 3306
+    xdebug:
+      from: 9000
+      to: 9000
   share_folders:
     www:
       host_path: './shares/www'
