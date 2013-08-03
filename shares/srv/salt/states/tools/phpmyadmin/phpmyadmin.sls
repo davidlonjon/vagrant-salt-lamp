@@ -1,6 +1,5 @@
 # This include and extend statement below should only exists if
 # using apache
-
 include:
   - states.www.apache
 
@@ -10,7 +9,6 @@ phpmyadmin:
     - require:
       - pkg: php5
       - pkg: apache2
-
 
 phpmyadmin_apache:
   file.managed:
@@ -27,6 +25,7 @@ phpmyadmin_apache:
        logs_dir: {{ "/home/vagrant" if pillar['phpmyadmin']['logs_dir'] is not defined else pillar['phpmyadmin']['logs_dir'] }}
     - require:
       - pkg: phpmyadmin
+      - pkg: apache2
 
 phpmyadmin_apache-enable:
   file.symlink:
@@ -40,5 +39,5 @@ extend:
     service:
       - running
       - watch:
-        - file: /etc/apache2/sites-available/phpmyadmin
+        - file: /etc/apache2/sites-enabled/phpmyadmin
         - pkg: phpmyadmin

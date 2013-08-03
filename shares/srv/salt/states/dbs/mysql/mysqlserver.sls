@@ -7,12 +7,22 @@ mysql-server:
     - name: mysql
     - require:
       - pkg: mysql-server
-  mysql_user:
-      - present
-      - name: {{ "root" if pillar["mysql_server"]["root_username"] is not defined else pillar["mysql_server"]["root_username"] }}
-      - password: {{ "root" if pillar["mysql_server"]["root_password"] is not defined else pillar["mysql_server"]["root_password"] }}
-      - require:
-        - service: mysql
+
+# Note this work on the first time but after it fails.
+# This is only a problem if you want to set up the password again via salt
+mysql-db:
+  mysql_user.present:
+    - name: {{ "root" if pillar["mysql_server"]["root_username"] is not defined else pillar["mysql_server"]["root_username"] }}
+    - password: {{ "root" if pillar["mysql_server"]["root_password"] is not defined else pillar["mysql_server"]["root_password"] }}
+    - host: localhost
+  mysql_grants.present:
+    - database: mysql.*
+    - user: {{ "root" if pillar["mysql_server"]["root_username"] is not defined else pillar["mysql_server"]["root_username"] }}
+    - host: localhost
+    - grant: ALL PRIVILEGES
+  require:
+    - pkg: python-mysqldb
+    - service: mysql
 
 python-mysqldb:
   pkg.installed
