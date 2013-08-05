@@ -2,7 +2,8 @@ include:
   - states.www.apache2
 
 php5:
-  pkg.installed:
+  pkg:
+  - installed
   - pkgs:
     - php5
     - php5-mysql
