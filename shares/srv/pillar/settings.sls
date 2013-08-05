@@ -9,3 +9,6 @@ mysql_server:
   root_password: root
   bind_address: 127.0.0.1
   version: 5.5
+
+memcached:
+  memory: 128

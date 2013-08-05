@@ -13,6 +13,9 @@ web1:
     xdebug:
       from: 9000
       to: 9000
+    memcached:
+      from: 11211
+      to: 11211
   share_folders:
     www:
       host_path: './shares/www'
