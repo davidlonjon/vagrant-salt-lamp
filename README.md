@@ -78,3 +78,4 @@ It is unlikely to work on Windows.
 https://github.com/Virtualmaster/ha-lamp-salt-states/
 https://github.com/tony/salt-states-configs
 https://github.com/auser/states/
+https://github.com/MiniCodeMonkey/

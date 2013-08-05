@@ -19,7 +19,7 @@ web1:
   share_folders:
     www:
       host_path: './shares/www'
-      guest_path: '/home/vagrant/www/project.dev'
+      guest_path: '/home/vagrant/www'
     logs:
       host_path: './shares/www_logs'
       guest_path: '/home/vagrant/www_logs'

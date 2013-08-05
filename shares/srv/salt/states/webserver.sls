@@ -4,3 +4,4 @@ include:
   - states.dbs.mysql.mysqlclient
   - states.tools.phpmyadmin
   - states.caches.memcached
+  - states.virtualhosts.default_vhost
