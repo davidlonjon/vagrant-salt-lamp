@@ -4,14 +4,16 @@ include:
   - states.www.apache2
 
 phpmyadmin:
-  pkg.installed:
+  pkg:
+    - installed
     - name: phpmyadmin
     - require:
       - pkg: php5
       - pkg: apache2
 
 phpmyadmin_apache:
-  file.managed:
+  file:
+    - managed
     - source: salt://states/tools/phpmyadmin/etc/apache2/sites-available/phpmyadmin
     - name: /etc/apache2/sites-available/phpmyadmin
     - user: root
@@ -28,7 +30,8 @@ phpmyadmin_apache:
       - pkg: apache2
 
 phpmyadmin_apache-enable:
-  file.symlink:
+  file:
+    - symlink
     - name: /etc/apache2/sites-enabled/phpmyadmin
     - target: /etc/apache2/sites-available/phpmyadmin
     - require:
