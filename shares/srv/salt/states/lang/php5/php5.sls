@@ -21,7 +21,7 @@ php5:
 /etc/php5/conf.d/xdebug.ini:
   file:
     - managed
-    - source: salt://states/lang/php/etc/php5/conf.d/xdebug.ini
+    - source: salt://states/lang/php5/etc/php5/conf.d/xdebug.ini
     - template: jinja
     - mode: 644
     - require:
