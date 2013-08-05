@@ -1,5 +1,5 @@
 base:
   '*':
-    - states.core.*
+    - states.core
     - states.webserver
     - states.dbserver
