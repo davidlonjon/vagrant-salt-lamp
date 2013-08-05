@@ -1,7 +1,7 @@
 # This include and extend statement below should only exists if
 # using apache
 include:
-  - states.www.apache
+  - states.www.apache2
 
 phpmyadmin:
   pkg.installed:

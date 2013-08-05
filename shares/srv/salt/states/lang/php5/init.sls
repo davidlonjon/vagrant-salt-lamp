@@ -1,5 +1,5 @@
 include:
-  - states.www.apache
+  - states.www.apache2
 
 php5:
   pkg.installed:

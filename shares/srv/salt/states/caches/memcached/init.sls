@@ -1,5 +1,5 @@
 include:
-  - states.www.apache
+  - states.www.apache2
 
 memcached:
   pkg:
