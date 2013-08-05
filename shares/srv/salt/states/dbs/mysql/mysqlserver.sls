@@ -1,9 +1,11 @@
 # Inspired from https://github.com/tony/salt-states-configs
 
 mysql-server:
-  pkg.installed:
+  pkg:
+    - installed
     - name: {{ "mysql-server" if pillar["mysql_server"]["version"] is not defined else "mysql-server-%s" % pillar["mysql_server"]["version"] }}
-  service.running:
+  service:
+    - running
     - name: mysql
     - require:
       - pkg: mysql-server
@@ -18,7 +20,8 @@ mysql-db:
   #     - service: mysql
   #     - pkg: mysql-client
   #     - pkg: python-mysqldb
-  mysql_user.present:
+  mysql_user:
+    - present
     - name: {{ "root" if pillar["mysql_server"]["root_username"] is not defined else pillar["mysql_server"]["root_username"] }}
     - password: {{ "root" if pillar["mysql_server"]["root_password"] is not defined else pillar["mysql_server"]["root_password"] }}
     - host: localhost
@@ -40,27 +43,30 @@ mysql-db:
   #     - mysql_user.present: {{ "root" if pillar["mysql_server"]["root_username"] is not defined else pillar["mysql_server"]["root_username"] }}
 
 python-mysqldb:
-  pkg.installed
+  pkg:
+    - installed
 
 /etc/mysql/my.cnf:
-    file:
-        - managed
-        - source: salt://states/dbs/mysql/etc/mysql/my.cnf
-        - template: jinja
-        - mode: 644
-        - require:
-            - pkg: mysql-server
-        - defaults:
-            port: {{ "3306" if pillar["mysql_server"]["port"] is not defined else pillar["mysql_server"]["port"] }}
-            bind_address: {{ "127.0.0.1" if pillar["mysql_server"]["bind_address"] is not defined else pillar["mysql_server"]["bind_address"] }}
+  file:
+    - managed
+    - source: salt://states/dbs/mysql/etc/mysql/my.cnf
+    - template: jinja
+    - mode: 644
+    - require:
+        - pkg: mysql-server
+    - defaults:
+        port: {{ "3306" if pillar["mysql_server"]["port"] is not defined else pillar["mysql_server"]["port"] }}
+        bind_address: {{ "127.0.0.1" if pillar["mysql_server"]["bind_address"] is not defined else pillar["mysql_server"]["bind_address"] }}
 
 /etc/mysql/conf.d:
-  file.directory:
+  file:
+    - directory
     - dir_mode: 0755
     - mode: 0644
 
 /etc/mysql/conf.d/server-encoding-and-collation.cnf:
-  file.managed:
+  file:
+    - managed
     - mode: 0644
     - source: salt://states/dbs/mysql/etc/mysql/conf.d/server-encoding-and-collation.cnf
     - require:
@@ -71,7 +77,8 @@ python-mysqldb:
       - file: /etc/mysql/conf.d
 
 /etc/mysql/conf.d/default-table-engine.cnf:
-  file.managed:
+  file:
+    - managed
     - mode: 0644
     - source: salt://states/dbs/mysql/etc/mysql/conf.d/default-table-engine.cnf
     - require:
