@@ -6,4 +6,5 @@ include:
   - states.tools.composer
   - states.tools.phpqatools
   - states.caches.memcached
+  - states.caches.apc
   - states.virtualhosts.default_vhost

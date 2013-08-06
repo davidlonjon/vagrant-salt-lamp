@@ -22,3 +22,6 @@ memcached:
   memory: 128
   host: 127.0.0.1
   port: 11211
+
+apc:
+  memory: 64
