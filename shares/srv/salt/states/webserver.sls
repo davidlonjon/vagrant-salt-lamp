@@ -1,6 +1,7 @@
 include:
   - states.www.apache2
   - states.lang.php5
+  - states.lang.python
   - states.dbs.mysql.mysqlclient
   - states.tools.phpmyadmin
   - states.tools.composer
