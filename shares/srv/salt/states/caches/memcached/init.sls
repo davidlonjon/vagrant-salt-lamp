@@ -26,6 +26,8 @@ memcached.conf:
     - mode: 644
     - defaults:
        memory: {{ "64"  if pillar['memcached']['memory'] is not defined else pillar['memcached']['memory'] }}
+       host: {{ "127.0.0.1"  if pillar['memcached']['host'] is not defined else pillar['memcached']['host'] }}
+       port: {{ "11211"  if pillar['memcached']['port'] is not defined else pillar['memcached']['port'] }}
     - require:
       - pkg: memcached
 
