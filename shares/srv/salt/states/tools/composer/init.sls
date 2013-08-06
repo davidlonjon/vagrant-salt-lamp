@@ -3,6 +3,7 @@ install_composer:
         - run
         - name: 'curl -sS https://getcomposer.org/installer | php'
         - cwd: /home/vagrant
+        - unless: test -e /usr/local/bin/composer
         - require:
             - pkg: php5
 
@@ -11,5 +12,6 @@ mv_composer:
         - run
         - name: 'mv composer.phar /usr/local/bin/composer'
         - cwd: /home/vagrant
+        - unless: test -e /usr/local/bin/composer
         - require:
             - cmd: install_composer
