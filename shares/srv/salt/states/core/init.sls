@@ -11,5 +11,7 @@ include:
   - states.core.pkgs.tmux
   - states.core.pkgs.vim
   - states.core.pkgs.svn
+  - states.core.pkgs.gplusplus
+  - states.core.pkgs.make
 
 
