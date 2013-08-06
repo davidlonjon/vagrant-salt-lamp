@@ -4,5 +4,6 @@ include:
   - states.dbs.mysql.mysqlclient
   - states.tools.phpmyadmin
   - states.tools.composer
+  - states.tools.phpqatools
   - states.caches.memcached
   - states.virtualhosts.default_vhost
