@@ -79,3 +79,4 @@ https://github.com/Virtualmaster/ha-lamp-salt-states/
 https://github.com/tony/salt-states-configs
 https://github.com/auser/states/
 https://github.com/MiniCodeMonkey/
+https://github.com/trilan/salt-states/
