@@ -6,6 +6,7 @@ install_composer:
         - unless: test -e /usr/local/bin/composer
         - require:
             - pkg: php5
+            - pkg: curl
 
 mv_composer:
     cmd:
