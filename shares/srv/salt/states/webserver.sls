@@ -11,3 +11,4 @@ include:
   - states.caches.apc
   - states.virtualhosts.default_vhost
   - states.tools.compass
+  - states.tools.less
