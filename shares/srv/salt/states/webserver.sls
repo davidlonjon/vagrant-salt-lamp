@@ -10,3 +10,4 @@ include:
   - states.caches.memcached
   - states.caches.apc
   - states.virtualhosts.default_vhost
+  - states.tools.compass
