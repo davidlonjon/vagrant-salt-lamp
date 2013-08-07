@@ -2,5 +2,5 @@ python:
   pkg:
   - installed
   - pkgs:
-    - python-software-properties
     - python
+    - python-software-properties
