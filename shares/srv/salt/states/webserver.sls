@@ -13,3 +13,4 @@ include:
   - states.tools.compass
   - states.tools.less
   - states.tools.yeoman_grunt_bower
+  - states.tools.csslint
