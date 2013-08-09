@@ -74,10 +74,12 @@ Inside the VM:
 It is unlikely to work on Windows.
 
 ## Todo
+  Possible add the following to the setup:
   - Add Webgind
   - Add Jenkins
   - Add Capestrano
   - Add fabric
+  - Redis
 
 ## Credits
   This project and code have been directly inspired by or copied from:
