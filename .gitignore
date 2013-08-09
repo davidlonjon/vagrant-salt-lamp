@@ -10,8 +10,8 @@ dump.rdb
 # Ignore sublime project files
 sublime
 
-shares/www/*
-!shares/www/README.md
+shares/projects/*
+!shares/projects/README.md
 
 shares/www_logs/*
 !shares/www_logs/README.md
