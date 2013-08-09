@@ -65,6 +65,7 @@ Inside the VM:
 
 ## Issues:
 - Removal of hosts entries on host machine does not seems to work
+- Problem with installing compass at first run of 'vagrant up' command
 
 ## Notes
 
