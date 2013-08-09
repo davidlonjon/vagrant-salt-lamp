@@ -34,7 +34,7 @@ vhost_doc_root:
 default_vhost_index:
   file:
     - managed
-    - source: salt://public/default_vhost_index.php
+    - source: salt://files/default_vhost_index.php
     - name: {{ "/home/vagrant/projects/project.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}/index.php
     - template: jinja
     - makedirs: True
