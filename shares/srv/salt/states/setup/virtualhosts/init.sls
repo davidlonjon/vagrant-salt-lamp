@@ -34,17 +34,11 @@ vhost_doc_root:
 default_vhost_index:
   file:
     - managed
+    - replace: False
     - source: salt://states/setup/virtualhosts/files/index.php
     - name: {{ "/home/vagrant/projects/myproject.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}/index.php
-    - template: jinja
     - makedirs: True
     - mode: 644
-    - defaults:
-        mysql_username: {{ "root" if pillar["mysql_server"]["root_username"] is not defined else pillar["mysql_server"]["root_username"] }}
-        mysql_password: {{ "root" if pillar["mysql_server"]["root_password"] is not defined else pillar["mysql_server"]["root_password"] }}
-        mysql_host: {{ "localhost" if pillar["mysql_server"]["bind_address"] is not defined else pillar["mysql_server"]["bind_address"] }}
-        memcached_host: {{ "localhost" if pillar["memcached"]["host"] is not defined else pillar["memcached"]["host"] }}
-        memcached_port: {{ "11211" if pillar["memcached"]["port"] is not defined else pillar["memcached"]["port"] }}
     - require:
       - file: default_vhost_apache
       - file: vhost_doc_root
