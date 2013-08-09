@@ -13,9 +13,9 @@ default_vhost_apache:
     - template: jinja
     - mode: 644
     - defaults:
-       server_admin: {{ "admin@project.dev" if pillar['default_vhost']['server_admin'] is not defined else pillar['default_vhost']['server_admin'] }}
-       server_name: {{ "project.dev" if pillar['default_vhost']['server_name'] is not defined else pillar['default_vhost']['server_name'] }}
-       doc_root: {{ "/home/vagrant/projects/project.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}
+       server_admin: {{ "admin@myproject.dev" if pillar['default_vhost']['server_admin'] is not defined else pillar['default_vhost']['server_admin'] }}
+       server_name: {{ "myproject.dev" if pillar['default_vhost']['server_name'] is not defined else pillar['default_vhost']['server_name'] }}
+       doc_root: {{ "/home/vagrant/projects/myproject.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}
        allow_override: {{ "None" if pillar['default_vhost']['allow_override'] is not defined else pillar['default_vhost']['allow_override'] }}
        allow_from: {{ "All" if pillar['default_vhost']['allow_from'] is not defined else pillar['default_vhost']['allow_from'] }}
        logs_dir: {{ "/home/vagrant" if pillar['default_vhost']['logs_dir'] is not defined else pillar['default_vhost']['logs_dir'] }}
@@ -27,7 +27,7 @@ vhost_doc_root:
   file:
     - directory
     - makedirs: True
-    - name: {{ "/home/vagrant/projects/project.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}
+    - name: {{ "/home/vagrant/projects/myproject.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}
     - dir_mode: 0755
     - mode: 0644
 
@@ -35,7 +35,7 @@ default_vhost_index:
   file:
     - managed
     - source: salt://files/default_vhost_index.php
-    - name: {{ "/home/vagrant/projects/project.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}/index.php
+    - name: {{ "/home/vagrant/projects/myproject.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}/index.php
     - template: jinja
     - makedirs: True
     - mode: 644

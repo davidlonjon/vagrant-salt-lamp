@@ -1,5 +1,5 @@
 web1:
-  hostname: 'web1.project.dev'
+  hostname: 'web1.myproject.dev'
   ip: '20.20.20.10'
   box: 'precise64'
   url: 'http://files.vagrantup.com/precise64.box'
@@ -29,7 +29,7 @@ web1:
     db_dump:
       host_path: './shares/db_dumps'
       guest_path: '/home/vagrant/db_dumps/'
-  host_aliases: 'project.dev www.project.dev mysql.project.dev phpmyadmin.project.dev'
+  host_aliases: 'myproject.dev www.myproject.dev mysql.myproject.dev phpmyadmin.myproject.dev'
   ram: 1024
   timezone: 'Asia/Seoul'
   provisioner: 'salt'
