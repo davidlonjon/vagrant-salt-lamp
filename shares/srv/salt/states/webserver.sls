@@ -3,6 +3,7 @@ include:
   - states.lang.php5
   - states.lang.python
   - states.lang.nodejs
+  - states.lang.ruby_rvm
   - states.dbs.mysql.mysqlclient
   - states.caches.memcached
   - states.caches.apc

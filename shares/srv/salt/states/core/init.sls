@@ -13,6 +13,3 @@ include:
   - states.core.pkgs.svn
   - states.core.pkgs.gplusplus
   - states.core.pkgs.make
-  - states.core.pkgs.ruby_rvm
-
-
