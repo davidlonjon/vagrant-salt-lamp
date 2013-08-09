@@ -74,10 +74,15 @@ Inside the VM:
 It is unlikely to work on Windows.
 
 ## Todo
+  - Add Webgind
+  - Add Jenkins
+  - Add Capestrano
+  - Add fabric
 
 ## Credits
-https://github.com/Virtualmaster/ha-lamp-salt-states/
-https://github.com/tony/salt-states-configs
-https://github.com/auser/states/
-https://github.com/MiniCodeMonkey/
-https://github.com/trilan/salt-states/
+  This project and code have been directly inspired by or copied from:
+  - [https://github.com/Virtualmaster/ha-lamp-salt-states/](https://github.com/Virtualmaster/ha-lamp-salt-states/)
+  - [https://github.com/tony/salt-states-configs](https://github.com/tony/salt-states-configs)
+  - [https://github.com/auser/states/](https://github.com/auser/states/)
+  - [https://github.com/MiniCodeMonkey/](https://github.com/MiniCodeMonkey/)
+  - [https://github.com/trilan/salt-states/](https://github.com/trilan/salt-states/)
