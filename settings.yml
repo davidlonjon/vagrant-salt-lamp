@@ -20,9 +20,9 @@ web1:
       from: 35729
       to: 35729
   share_folders:
-    project:
-      host_path: './shares/project'
-      guest_path: '/home/vagrant/project'
+    projects:
+      host_path: './shares/projects'
+      guest_path: '/home/vagrant/projects'
     logs:
       host_path: './shares/www_logs'
       guest_path: '/home/vagrant/www_logs'
