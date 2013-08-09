@@ -6,8 +6,8 @@ include:
 default_vhost_apache:
   file:
     - managed
-    - source: salt://states/virtualhosts/etc/apache2/sites-available/default_vhost.conf
-    - name: /etc/apache2/sites-available/default_vhost.conf
+    - source: salt://states/setup/virtualhosts/etc/apache2/sites-available/vhost_template
+    - name: /etc/apache2/sites-available/{{ "myproject.dev" if pillar['default_vhost']['server_name'] is not defined else pillar['default_vhost']['server_name'] }}
     - user: root
     - group: root
     - template: jinja
@@ -34,7 +34,7 @@ vhost_doc_root:
 default_vhost_index:
   file:
     - managed
-    - source: salt://files/default_vhost_index.php
+    - source: salt://states/setup/virtualhosts/files/index.php
     - name: {{ "/home/vagrant/projects/myproject.dev/public" if pillar['default_vhost']['doc_root'] is not defined else pillar['default_vhost']['doc_root'] }}/index.php
     - template: jinja
     - makedirs: True
@@ -52,8 +52,8 @@ default_vhost_index:
 default_host_apache_enable:
   file:
     - symlink
-    - name: /etc/apache2/sites-enabled/default_vhost.conf
-    - target: /etc/apache2/sites-available/default_vhost.conf
+    - name: /etc/apache2/sites-enabled/{{ "myproject.dev" if pillar['default_vhost']['server_name'] is not defined else pillar['default_vhost']['server_name'] }}
+    - target: /etc/apache2/sites-available/{{ "myproject.dev" if pillar['default_vhost']['server_name'] is not defined else pillar['default_vhost']['server_name'] }}
     - require:
       - file: default_vhost_apache
 
@@ -62,4 +62,4 @@ extend:
     service:
       - running
       - watch:
-        - file: /etc/apache2/sites-available/default_vhost.conf
+        - file: /etc/apache2/sites-available/{{ "myproject.dev" if pillar['default_vhost']['server_name'] is not defined else pillar['default_vhost']['server_name'] }}

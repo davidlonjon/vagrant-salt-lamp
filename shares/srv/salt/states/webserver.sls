@@ -7,7 +7,6 @@ include:
   - states.dbs.mysql.mysqlclient
   - states.caches.memcached
   - states.caches.apc
-  - states.virtualhosts.default_vhost
   - states.tools.phpmyadmin
   - states.tools.composer
   - states.tools.phpqatools
@@ -17,3 +16,5 @@ include:
   - states.tools.csslint
   - states.tools.jshint
   - states.tools.python_livereload
+  - states.setup.default_var_www_index
+  - states.setup.virtualhosts
