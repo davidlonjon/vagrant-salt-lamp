@@ -80,6 +80,7 @@ It is unlikely to work on Windows.
   - Add Capestrano
   - Add fabric
   - Redis
+  - Postfix
 
 ## Credits
   This project and code have been directly inspired by or copied from:
