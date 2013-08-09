@@ -4,14 +4,15 @@ include:
   - states.lang.python
   - states.lang.nodejs
   - states.dbs.mysql.mysqlclient
-  - states.tools.phpmyadmin
-  - states.tools.composer
-  - states.tools.phpqatools
   - states.caches.memcached
   - states.caches.apc
   - states.virtualhosts.default_vhost
+  - states.tools.phpmyadmin
+  - states.tools.composer
+  - states.tools.phpqatools
   - states.tools.compass
   - states.tools.less
   - states.tools.yeoman_grunt_bower
   - states.tools.csslint
   - states.tools.jshint
+  - states.tools.python_livereload

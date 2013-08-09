@@ -16,6 +16,9 @@ web1:
     memcached:
       from: 11211
       to: 11211
+    livereload:
+      from: 35729
+      to: 35729
   share_folders:
     www:
       host_path: './shares/www'
