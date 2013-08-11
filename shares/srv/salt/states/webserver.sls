@@ -12,6 +12,7 @@ include:
   - states.tools.composer
   - states.tools.phpqatools
   - states.tools.compass
+  - states.tools.capistrano
   - states.tools.less
   - states.tools.yeoman_grunt_bower
   - states.tools.csslint
