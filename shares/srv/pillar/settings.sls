@@ -25,3 +25,5 @@ memcached:
 
 apc:
   memory: 64
+
+timezone: 'Asia/Seoul'

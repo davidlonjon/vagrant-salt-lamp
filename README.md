@@ -75,7 +75,6 @@ It is unlikely to work on Windows.
 
 ## Todo
   Possible add the following to the setup:
-  - Webgind
   - Jenkins
   - Capistrano
   - Fabric
