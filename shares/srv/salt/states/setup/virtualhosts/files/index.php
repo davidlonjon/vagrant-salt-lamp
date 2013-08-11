@@ -56,8 +56,6 @@
       </div>
       <p class="lead">The Virtual Machine is up and running, yay! You might want to see some additional server information <a href="http://<?php echo $_SERVER['SERVER_ADDR'] ?>/index.php">here</a></p>
 
-      <em>Note: External access is enabled! </em>
-
     <div id="push"></div>
   </div>
 

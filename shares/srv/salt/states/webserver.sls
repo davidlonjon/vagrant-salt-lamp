@@ -16,5 +16,5 @@ include:
   - states.tools.csslint
   - states.tools.jshint
   - states.tools.python_livereload
-  - states.setup.default_var_www_index
+  - states.setup.default_var_www
   - states.setup.virtualhosts
