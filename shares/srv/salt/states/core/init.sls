@@ -2,6 +2,7 @@ include:
   - states.core.pkgs.build-essential
   - states.core.pkgs.curl
   - states.core.pkgs.git
+  - states.core.pkgs.wget
   - states.core.pkgs.htop
   - states.core.pkgs.mytop
   - states.core.pkgs.nmon
