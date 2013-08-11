@@ -69,16 +69,16 @@ Inside the VM:
 
 ## Notes
 
-**Only been test on MAC (Tested on Lion OSX 10.8.4)  & Linux  (Roughly tested on Ubuntu 13.04 LTS)**.
+**Only been test on MAC (Tested on Lion OSX 10.8.4)  as host and Ubunut Precise64 (12.04) as guest**.
 
 It is unlikely to work on Windows.
 
 ## Todo
   Possible add the following to the setup:
-  - Add Webgind
-  - Add Jenkins
-  - Add Capestrano
-  - Add fabric
+  - Webgind
+  - Jenkins
+  - Capistrano
+  - Fabric
   - Redis
   - Postfix
 
