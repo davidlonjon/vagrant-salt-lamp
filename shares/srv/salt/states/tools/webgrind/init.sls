@@ -6,6 +6,7 @@ install_webgrind:
         - unless: test -e /var/www/webgrind
         - require:
             - pkg: wget
+            - pkg: unzip
 
 mv_webgrind:
     cmd:
