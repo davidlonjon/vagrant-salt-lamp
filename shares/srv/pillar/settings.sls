@@ -6,7 +6,7 @@ phpmyadmin:
 
 default_vhost:
   server_name: myproject.dev
-  doc_rot:  /home/vagrant/projects/myproject.dev/public
+  doc_root:  /home/vagrant/projects/myproject.dev/public
   server_admin: admin@myproject.dev
   allow_override: All
   allow_from: All
