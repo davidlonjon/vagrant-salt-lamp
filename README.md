@@ -61,11 +61,11 @@ Inside the VM:
 - MySQL
 - php
 - phpMyAdmin
+
 ## Defaults
 
 ## Issues:
 - Removal of hosts entries on host machine does not seems to work
-- Problem with installing compass at first run of 'vagrant up' command
 
 ## Notes
 
@@ -78,6 +78,11 @@ It is unlikely to work on Windows.
   - Jenkins
   - Redis
   - Postfix
+  - Jasmine
+  - Karma Test Runner
+  - Coffeescript
+  - Express HTTP
+  - dnsmasq
 
 ## Credits
   This project and code have been directly inspired by or copied from:
