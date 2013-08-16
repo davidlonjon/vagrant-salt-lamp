@@ -49,9 +49,9 @@ ruby-1.9.3:
       - pkg: rvm-deps
       - pkg: mri-deps
 
-mygemset:
-  rvm:
-    - gemset_present
-    - ruby: ruby-1.9.3
-    - require:
-      - rvm: ruby-1.9.3
+# mygemset:
+#   rvm:
+#     - gemset_present
+#     - ruby: ruby-1.9.3
+#     - require:
+#       - rvm: ruby-1.9.3
